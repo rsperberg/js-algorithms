@@ -37,12 +37,15 @@ function adjacentElementsProduct(inputArray) {
     return Math.max(...numbers);
 }
 
-// this doesn't run in Chrome: Unexpected token .
+// this doesn't run in Chrome as shown on codefights: Unexpected token .
+// so I removed the square brackets around the map result and put parentheses
+// around the map function
 // the ...arr.slice(1) makes new array that map operates on, so current value is
 // always multiplying previous element (eg, arr[i] * arr[i - 1], starting at index 1)
 // myjinxin2015
 function adjacentElementsProduct(arr) {
-  return Math.max(...arr.slice(1).map(x, i) => [x * arr[i]]);
+  // return Math.max(...arr.slice(1).map(x, i) => [x * arr[i]]); // original
+  return Math.max(...arr.slice(1).map((x, i) => x * arr[i]));  // as modified by me
 }
 
 // compare after every multiplication and store higher value
