@@ -33,3 +33,15 @@ function checkPalindrome(inputString) {
   let half2Rev = half2.split('').reverse().join('');
   return Object.is(half1, half2Rev);
 }
+
+// why bother splitting? Just compare the string to its reversed form
+// folsomwg
+function checkPalindrome(inputString) {
+  return inputString == inputString.split('').reverse().join('');
+}
+
+// use spread operator instead of .split()
+// haynar
+function checkPalindrome(inputString) {
+  return [...inputString].reverse().join('') === inputString;
+}
