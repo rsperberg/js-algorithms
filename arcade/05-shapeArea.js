@@ -27,3 +27,29 @@ The area of the n-interesting polygon
 function shapeArea(n) {
  return (n * n) + (n - 1) * (n - 1);
 }
+
+// bobziroll
+function shapeArea(n) {
+  return Math.pow(n,2) + Math.pow(n-1,2);
+}
+
+// phpyuz
+shapeArea = n => {
+  return n * (n - 1) * 2 + 1;
+}
+
+// santiago_m7
+function shapeArea(n) {
+  if (n === 1) return 1;
+  return shapeArea(n - 1) + 4 * (n - 1);
+}
+
+// nick_lehmann
+function shapeArea(n) {
+  return Math.ceil(Math.pow(n + (n - 1), 2) / 2);
+}
+
+// Aram
+function shapeArea(n) {
+  return (2 * n * n) - (2 * n) + 1;
+}
