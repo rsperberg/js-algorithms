@@ -53,3 +53,52 @@ function countChars(str) {
     return counts;
   }, {});
 }
+
+// loop through characters in s1
+// in s2, replace a match with a !
+// replace all non-matches with empty character
+// return length of s2
+// lifeofnations
+function commonCharacterCount(s1, s2) {
+  for (var i = 0; i < s1.length; i++) {
+    s2 = s2.replace(s1[i], '!');
+  }
+  return s2.replace(/[^!]/g, '').length;
+}
+
+// make array of chars from s1
+// loop through array, removing each character
+// if character in s2, replace first instance with empty string and increment count
+// myjinxin2015
+function commonCharacterCount(s1, s2) {
+  var chars = s1.split('');
+  var count = 0;
+  while (chars.length) {
+    var ch = chars.pop();
+    if (s2.includes(ch)) {
+      count++;
+      s2 = s2.replace(ch, '');
+    }
+  }
+  return countChars;
+}
+
+// make array of characters in s1 without duplicates
+// look in s1 and s2 for matches and capture how many
+// compare those values and add the lesser to count
+// phpyuz
+function commonCharacterCount(s1, s2) {
+  let u = s1.split``.filter(function(elem, idx, arr) {
+    console.log(elem, idx, arr);
+    return arr.indexOf(elem) === idx;
+  });
+  console.log(u);
+  count = 0;
+  for (var i in u)
+    {
+      let m1 = (s1.match(new RegExp(u[i], 'g')) || []).length;
+      let m2 = (s2.match(new RegExp(u[i], 'g')) || []).length;
+      count += Math.min(m1, m2);
+    }
+  return count;
+}
