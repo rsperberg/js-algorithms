@@ -53,5 +53,32 @@ The total price of all the rooms that are suitable for the CodeBots to live in.
 */
 
 function matrixElementsSum(matrix) {
+// loop through each element in each array
+  // if element is 0, set the element with the same index in later arrays to 0
+  // (redundantly setting some elements to 0)
+  // add number to sum
+  let sum = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] === 0) {
+        for (let k = i; k < matrix.length; k++) {
+          matrix[k][j] = 0;
+        }
+      }
+      sum += matrix[i][j];
+    }
+  }
+  return sum;
+}
 
+// add by column, stop when you hit any zero
+// myjinxin2015
+function matrixElementsSum(matrix) {
+  for (var r = 0, j = 0; j < matrix[0].length; j++) {
+    for (var i = 0; i < matrix.length; i++) {
+      if (matrix[i][j] === 0) break;
+      else r += matrix[i][j];
+    }
+  }
+  return r;
 }
