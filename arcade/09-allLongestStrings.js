@@ -38,3 +38,11 @@ function allLongestStrings(inputArray) {
     });
     return resultsArray;
 }
+
+// combine the mapping and finding max into one step
+// filter out all the shorter-than elements (modifies original array)
+// xyrn
+function allLongestStrings(inputArray) {
+  let maxSize = Math.max(...inputArray.map(x => x.length));
+  return inputArray.filter(x => x.length === maxSize);
+}
