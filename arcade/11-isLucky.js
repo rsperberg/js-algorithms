@@ -39,3 +39,25 @@ function isLucky(n) {
     }
     return sum1 === sum2;
 }
+
+// sum the first half digits, then subtract the second half digits
+// evgenia_y
+function isLucky(n) {
+  var count = 0;
+  n = String(n).split('').map(t => { return parseInt(t) });
+  n.forEach( (elem, idx) => { (idx < n.length / 2) ? count += elem : count -= elem });
+  return count == 0;
+}
+
+// put digits in array, pop the last digits
+// add to 'right' until half is reached, then add to 'left'
+// myjinxin2015
+function isLucky(n) {
+  var arr = (n + '').split('');
+  var half = a.length / 2;
+  var left = 0;
+  var right = 0;
+  while (arr.length > half) right += +a.pop();
+  while (arr.length) left += +a.pop();
+  return left == right;
+}
