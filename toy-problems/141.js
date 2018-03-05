@@ -13,6 +13,22 @@ function multiply(num1, num2) {
   }
 }
 
+// increment/decrement based on num2 > 0
+// Amanda Loftus
+function multiply(num1, num2) {
+  var result = 0;
+  if (num2 > 0) {
+    for (var x = 0; x < num2; x++) {
+      result += num1;
+    }
+  } else {
+    for (var y = 0; y > num2; y--) {
+      result -= num1;
+    }
+  }
+  return result;
+}
+
 // recursion
 // Jacqueline Leung
 function multiply(num1, num2) {
@@ -54,4 +70,24 @@ function multiply(num1, num2){
   }
   var arr = Array(num1).fill(num2);
   return arr.reduce((memo, num) => memo + num, 0);
+}
+
+// use while loop
+// add if positive, subtract if negative; increment/decrement likewise
+// Edward Kim
+function multiply(num1, num2) {
+  var result = 0;
+
+  while (num2) {
+    result += (num2 > 0 ? num1 : -num1);
+    num2 > 0 ? num2-- : num2++;
+  }
+
+  return result;
+}
+
+// MDN: Math.imul() allows for 32-bit integer multiplication with C-like semantics. This feature is useful for projects like Emscripten. Because imul() is a static method of Math, you always use it as Math.imul(), rather than as a method of a Math object you created (Math is not a constructor). If you use normal javascript floating point numbers in imul, you will experience a degrade in performance. This is because of the costly conversion from a floating point to an integer for multiplication, and then converting the multiplied integer back into a floating point. The reason imul exists is because it is faster in only one (so far) circumstance: AsmJS. AsmJS allows for JIST-optimizers to more easily implement internal integers in JavaScript. Multiplying two numbers stored internally as integers (which is only possible with AsmJS) with imul is the only potential circumstance where Math.imul may prove performant in current browsers.
+// Alex Balliet
+function multiply(num1, num2) {
+  return Math.imul(num1, num2);
 }
