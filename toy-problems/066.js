@@ -22,3 +22,12 @@ if(expression2){
 }
 return false
 }
+
+// Dino Firmalino
+const or = (exp1, exp2) => {
+  if (!exp1 && !exp2) {
+    return false;
+  } else {
+    return true;
+  }
+};
