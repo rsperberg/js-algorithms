@@ -91,3 +91,22 @@ function multiply(num1, num2) {
 function multiply(num1, num2) {
   return Math.imul(num1, num2);
 }
+
+// Juan Carlos Collins
+function multiply(num1, num2) {
+  let arr = [];
+  for (let i = 0; i < Math.abs(num2); i++) {
+    arr.push(num1);
+  }
+  let product = arr.reduce((a, b) => a + b, 0);
+  if(num1 < 0 && num2 < 0 || num2 < 0){
+    return product / -1;
+  } else {
+    return product;
+  }
+}
+
+// Justin Yip
+function multiply(num1, num2) {
+  return num1/(1/num2)
+}
